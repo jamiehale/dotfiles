@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+tasks_file="${TASKS_ROOT}/${TASKS_SCOPE}/tasks"
+
+task="$@"
+
+if [ "${task}" == "" ]
+then
+  echo "Usage: task-add \"task description\""
+  exit 1
+fi
+
+echo "${task}" >> $tasks_file
+
+task-list
+

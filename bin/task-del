@@ -1,0 +1,25 @@
+#! /usr/bin/env bash
+
+tasks_file="${TASKS_ROOT}/${TASKS_SCOPE}/tasks"
+trash_file="${TASKS_ROOT}/${TASKS_SCOPE}/trash"
+archive=1
+item_number=
+
+for arg in "$@"
+do
+  shift
+  case "${arg}" in
+    --no-archive) archive=0 ;;
+    *) item_number=$arg ;;
+  esac
+done
+
+if [ "${archive}" == 1 ]
+then
+  task-cat $item_number >> $trash_file
+fi
+
+task-rm $item_number
+
+task-list
+

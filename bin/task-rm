@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+tasks_file="${TASKS_ROOT}/${TASKS_SCOPE}/tasks"
+
+if [ "$#" == 0 ]
+then
+  echo "Usage: task-rm N"
+  exit 1
+fi
+
+task_count=$(wc -l < "${tasks_file}")
+item_number=$1
+if [ "${item_number}" -lt 0 ] | [ "${item_number}" -gt "${task_count}" ]
+then
+  echo "Invalid task number"
+  exit 1
+fi
+
+sed -i "" "${item_number}"d $tasks_file
+

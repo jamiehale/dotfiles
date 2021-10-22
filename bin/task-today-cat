@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+done_path="${TASKS_ROOT}/${TASKS_SCOPE}/done"
+done_file="${done_path}/$(date "+%Y-%m-%d")_tasks"
+
+if [ "$#" == 0 ]
+then
+  echo "Usage: task-today-cat N"
+  exit 1
+fi
+
+task_count=$(wc -l < "${done_file}")
+item_number=$1
+if [ "${item_number}" -lt 0 ] | [ "${item_number}" -gt "${task_count}" ]
+then
+  echo "Invalid task number"
+  exit 1
+fi
+
+head -"${item_number}" $done_file | tail -1
+

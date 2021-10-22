@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+done_path="${TASKS_ROOT}/${TASKS_SCOPE}/done"
+done_file="${done_path}/$(date "+%Y-%m-%d")_tasks"
+
+if [ -f "${done_file}" ]
+then
+  cat -n $done_file
+fi
+

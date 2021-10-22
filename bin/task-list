@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+tasks_file="${TASKS_ROOT}/${TASKS_SCOPE}/tasks"
+
+if [ -f "${tasks_file}" ]
+then
+  cat -n "${tasks_file}"
+fi
+

@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+trash_file="${TASKS_ROOT}/${TASKS_SCOPE}/trash"
+
+if [ -f "${trash_file}" ]
+then
+  cat -n $trash_file | head
+fi
+

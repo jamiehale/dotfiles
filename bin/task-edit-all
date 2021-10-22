@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+editor="${EDITOR}"
+
+if [ "${editor}" == "" ]
+then
+  editor=nvim
+fi
+
+$editor "${TASKS_ROOT}/${TASKS_SCOPE}/tasks"
+
